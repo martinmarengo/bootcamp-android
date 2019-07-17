@@ -10,7 +10,6 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     //endregion
 
     /**
-     * Options menu
+     * Context menu
      */
     //region ContextMenu
 
@@ -91,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(final MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        //AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
         case R.id.action_change_color:
             tvTitle.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
