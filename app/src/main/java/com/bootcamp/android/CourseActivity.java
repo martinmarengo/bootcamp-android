@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class CourseActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TextView tvTitle;
@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_course);
 
-        toolbar = findViewById(R.id.my_toolbar);
+        toolbar = findViewById(R.id.toolbar_course);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getMenuInflater().inflate(R.menu.main_activity_menu, menu);
+        getMenuInflater().inflate(R.menu.course_activity_menu, menu);
         //You can also add menu items using add() and retrieve items with findItem() to revise their
         // properties with MenuItem APIs.
         return true;
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(final ContextMenu menu, final View v, final ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater().inflate(R.menu.context_menu, menu);
+        getMenuInflater().inflate(R.menu.change_color_context_menu, menu);
     }
 
     @Override
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         btnEnroll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                //Toast.makeText(MainActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(CourseActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
                 String[] recipients = { "utnbootcamp@test.com" };
                 composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
             }
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*public void onEnrollBtnClick(View button) {
-        //Toast.makeText(MainActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
+        //Toast.makeText(CourseActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
         String[] recipients = { "marengo.martin@gmail.com" };
         composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
     }*/
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
-            Toast.makeText(MainActivity.this, "Ups, no podes enviar un email.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(CourseActivity.this, "Ups, no podes enviar un email.", Toast.LENGTH_SHORT).show();
         }
 
         //toolbar.setVisibility(View.GONE); // vs getSupportActionBar().hide(); etc.
