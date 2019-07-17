@@ -10,7 +10,6 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +30,45 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setUpViews();
+    }
+
+    private void setUpViews() {
+        Button btnEnroll = findViewById(R.id.btn_enroll);
+        btnEnroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                //Toast.makeText(MainActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
+                String[] recipients = { "utnbootcamp@test.com" };
+                composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
+            }
+        });
+
+        tvTitle = findViewById(R.id.tv_title);
+        registerForContextMenu(tvTitle);
+    }
+
+    /*public void onEnrollBtnClick(View button) {
+        //Toast.makeText(MainActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
+        String[] recipients = { "marengo.martin@gmail.com" };
+        composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
+    }*/
+
+    /* default */ void composeEmail(final String[] addresses, final String subject, final String body) {
+        final Intent intent = new Intent(Intent.ACTION_SENDTO);
+
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this.
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(MainActivity.this, "Ups, no podes enviar un email.", Toast.LENGTH_SHORT).show();
+        }
+
+        //toolbar.setVisibility(View.GONE); // vs getSupportActionBar().hide(); etc.
+        //toolbar.setBackgroundColor(Color.BLUE);
     }
 
     /**
@@ -63,11 +101,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public void onFavoritesPressed(final MenuItem item) {
+    /*void onFavoritesPressed(final MenuItem item) {
         Toast.makeText(this, "Favorites pressed!", Toast.LENGTH_SHORT).show();
     }
 
-    public void onSettingsPressed(final MenuItem item) {
+    void onSettingsPressed(final MenuItem item) {
         Toast.makeText(this, "Settings pressed!", Toast.LENGTH_SHORT).show();
     }*/
 
@@ -79,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     //endregion
 
     /**
-     * Options menu
+     * Context menu
      */
     //region ContextMenu
 
@@ -91,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(final MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        //AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
         case R.id.action_change_color:
             tvTitle.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
@@ -102,44 +140,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //endregion
-
-    private void setUpViews() {
-        Button btnEnroll = findViewById(R.id.btn_enroll);
-        btnEnroll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                //Toast.makeText(MainActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
-                String[] recipients = { "utnbootcamp@test.com" };
-                composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
-            }
-        });
-
-        tvTitle = findViewById(R.id.tv_title);
-        registerForContextMenu(tvTitle);
-    }
-
-    /*public void onEnrollBtnClick(View button) {
-        //Toast.makeText(MainActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
-        String[] recipients = { "marengo.martin@gmail.com" };
-        composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
-    }*/
-
-    public void composeEmail(final String[] addresses, final String subject, final String body) {
-        final Intent intent = new Intent(Intent.ACTION_SENDTO);
-        //final Intent intent = new Intent(Intent.ACTION_SEND);
-        //intent.setType("*/*");
-        intent.setData(Uri.parse("mailto:")); // only email apps should handle this.
-        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, body);
-
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(MainActivity.this, "Ups, no podes enviar un email.", Toast.LENGTH_SHORT).show();
-        }
-
-        //toolbar.setVisibility(View.GONE); // vs getSupportActionBar().hide(); etc.
-        //toolbar.setBackgroundColor(Color.BLUE);
-    }
 }
