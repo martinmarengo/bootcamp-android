@@ -1,8 +1,10 @@
 package com.bootcamp.android;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,14 +12,19 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CourseActivity extends AppCompatActivity {
 
+    private static final String[] ENROLLMENT_RECIPIENTS = { "utnbootcamp@test.com" };
     private Toolbar toolbar;
     private TextView tvTitle;
+    private TextInputLayout fullNameInput;
+    private TextInputLayout identificationInput;
+    private TextInputLayout phoneInput;
+    private TextInputLayout emailInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,63 @@ public class CourseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         setUpViews();
+    }
+
+    private void setUpViews() {
+        findViewById(R.id.btn_enroll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                onBtnEnrollClick();
+            }
+        });
+
+        tvTitle = findViewById(R.id.tv_title);
+        registerForContextMenu(tvTitle);
+
+        fullNameInput = findViewById(R.id.input_full_name);
+        identificationInput = findViewById(R.id.input_identification);
+        phoneInput = findViewById(R.id.input_phone);
+        emailInput = findViewById(R.id.input_email);
+    }
+
+    /* default */ void onBtnEnrollClick() {
+        hiddeKeyboard();
+
+        String fullName = fullNameInput.getEditText().getText().toString();
+        String identification = identificationInput.getEditText().getText().toString();
+        String phone = phoneInput.getEditText().getText().toString();
+        String email = emailInput.getEditText().getText().toString();
+
+        StringBuilder builder = new StringBuilder("Hola, me quiero anotar al curso:");
+        builder.append("\nNombre: " + fullName);
+        builder.append("\nDNI: " + identification);
+        builder.append("\nTeléfono: " + phone);
+        builder.append("\nEmail: " + email);
+
+        composeEmail(ENROLLMENT_RECIPIENTS, "GO! Desde Hello World hasta API Rest", builder.toString());
+    }
+
+    public void composeEmail(final String[] addresses, final String subject, final String body) {
+        final Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this.
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(CourseActivity.this, "Ups, no podes enviar un email.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void hiddeKeyboard() {
+        // Check if no view has focus:
+        View view = getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     /**
@@ -101,44 +165,4 @@ public class CourseActivity extends AppCompatActivity {
     }
 
     //endregion
-
-    private void setUpViews() {
-        Button btnEnroll = findViewById(R.id.btn_enroll);
-        btnEnroll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                //Toast.makeText(CourseActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
-                String[] recipients = { "utnbootcamp@test.com" };
-                composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
-            }
-        });
-
-        tvTitle = findViewById(R.id.tv_title);
-        registerForContextMenu(tvTitle);
-    }
-
-    /*public void onEnrollBtnClick(View button) {
-        //Toast.makeText(CourseActivity.this, "Ya estas anotado!!", Toast.LENGTH_LONG).show();
-        String[] recipients = { "marengo.martin@gmail.com" };
-        composeEmail(recipients, "Inscripción curso Go", "Hola, me quiero anotar al curso de Go.");
-    }*/
-
-    public void composeEmail(final String[] addresses, final String subject, final String body) {
-        final Intent intent = new Intent(Intent.ACTION_SENDTO);
-        //final Intent intent = new Intent(Intent.ACTION_SEND);
-        //intent.setType("*/*");
-        intent.setData(Uri.parse("mailto:")); // only email apps should handle this.
-        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, body);
-
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(CourseActivity.this, "Ups, no podes enviar un email.", Toast.LENGTH_SHORT).show();
-        }
-
-        //toolbar.setVisibility(View.GONE); // vs getSupportActionBar().hide(); etc.
-        //toolbar.setBackgroundColor(Color.BLUE);
-    }
 }

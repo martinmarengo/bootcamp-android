@@ -28,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void onGoBtnClick() {
+    /* default */ void onGoBtnClick() {
         final Intent i = new Intent(this, CourseActivity.class);
         startActivity(i);
     }
