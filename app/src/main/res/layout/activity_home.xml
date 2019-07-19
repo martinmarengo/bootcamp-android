@@ -34,57 +34,13 @@
             android:src="@drawable/bootcamp_intro"
             android:layout_marginTop="8dp"/>
 
-        <TextView
+        <Button
+            android:id="@+id/btn_courses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            style="@style/TextTitle"
-            android:text="Cursos"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/tv_course_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/TextBody1"
-                    android:text="GO! Desde Hello World hasta API Rest"/>
-
-                <TextView
-                    android:id="@+id/tv_course_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_course_name"
-                    style="@style/TextBody2"
-                    android:text="22/07 al 26/07 - 10 hs"/>
-
-                <TextView
-                    android:id="@+id/tv_course_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_course_date"
-                    style="@style/TextBody2"
-                    android:text="20:00 a 22:00 horas"/>
-
-                <Button
-                    android:id="@+id/btn_go_course"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    style="@style/ButtonActionPrimary"
-                    android:text="VER"/>
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="3dp"
-            android:background="#424242"/>
+            android:layout_marginTop="16dp"
+            android:text="Cursos"
+            style="@style/ButtonActionPrimary"/>
 
     </LinearLayout>
 

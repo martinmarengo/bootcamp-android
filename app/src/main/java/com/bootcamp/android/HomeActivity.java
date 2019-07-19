@@ -20,16 +20,16 @@ public class HomeActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
 
-        findViewById(R.id.btn_go_course).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_courses).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                onGoBtnClick();
+                onCoursesBtnClick();
             }
         });
     }
 
-    /* default */ void onGoBtnClick() {
-        final Intent i = new Intent(this, CourseActivity.class);
+    /* default */ void onCoursesBtnClick() {
+        final Intent i = new Intent(this, CoursesListActivity.class);
         startActivity(i);
     }
 }
