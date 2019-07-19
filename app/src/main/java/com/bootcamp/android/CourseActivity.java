@@ -26,15 +26,27 @@ public class CourseActivity extends AppCompatActivity {
     private TextInputLayout phoneInput;
     private TextInputLayout emailInput;
 
+    private Course course;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
 
         toolbar = findViewById(R.id.toolbar_course);
+        toolbar.setTitle("Curso");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (getIntent().hasExtra("course")) {
+            course = (Course) getIntent().getSerializableExtra("course");
+        }
+
+        if (course == null) {
+            // Terminamos la activity.
+            finish();
+        }
 
         setUpViews();
     }
@@ -49,6 +61,14 @@ public class CourseActivity extends AppCompatActivity {
 
         tvTitle = findViewById(R.id.tv_title);
         registerForContextMenu(tvTitle);
+        TextView tvDate = findViewById(R.id.tv_date);
+        TextView tvTime = findViewById(R.id.tv_time);
+        TextView tvDuration = findViewById(R.id.tv_duration);
+
+        tvTitle.setText(course.getName());
+        tvDate.setText(course.getDate());
+        tvTime.setText(course.getTime());
+        tvDuration.setText(course.getDuration());
 
         fullNameInput = findViewById(R.id.input_full_name);
         identificationInput = findViewById(R.id.input_identification);
@@ -70,7 +90,7 @@ public class CourseActivity extends AppCompatActivity {
         builder.append("\nTeléfono: " + phone);
         builder.append("\nEmail: " + email);
 
-        composeEmail(ENROLLMENT_RECIPIENTS, "GO! Desde Hello World hasta API Rest", builder.toString());
+        composeEmail(ENROLLMENT_RECIPIENTS, course.getName(), builder.toString());
     }
 
     public void composeEmail(final String[] addresses, final String subject, final String body) {

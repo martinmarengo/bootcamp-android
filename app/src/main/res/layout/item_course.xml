@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp">
+    android:paddingLeft="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingRight="16dp"
+    android:background="?android:attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/tv_course_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextBody1"
-        android:text="GO! Desde Hello World hasta API Rest"/>
+        tools:text="Nombre del curso"/>
 
     <TextView
         android:id="@+id/tv_course_date"
@@ -18,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_course_name"
         style="@style/TextBody2"
-        android:text="22/07 al 26/07 - 10 hs"/>
+        tools:text="Fechas del curso"/>
 
     <TextView
         android:id="@+id/tv_course_time"
@@ -26,15 +31,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_course_date"
         style="@style/TextBody2"
-        android:text="20:00 a 22:00 horas"/>
+        tools:text="Horario del curso"/>
 
-    <Button
-        android:id="@+id/btn_go_course"
+    <TextView
+        android:id="@+id/tv_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        style="@style/ButtonActionPrimary"
-        android:text="VER"/>
+        style="@style/TextTitle"
+        tools:text="10 hs"/>
 
 </RelativeLayout>

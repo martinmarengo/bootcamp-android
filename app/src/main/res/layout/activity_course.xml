@@ -30,21 +30,28 @@
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GO! Desde Hello World hasta API Rest"
+                tools:text="GO! Desde Hello World hasta API Rest"
                 style="@style/TextTitle"/>
 
             <TextView
                 android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="22/07 al 26/07 - 10 hs"
+                tools:text="22/07 al 26/07"
                 style="@style/TextBody1"/>
 
             <TextView
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20:00 a 22:00 horas"
+                tools:text="20:00 a 22:00 horas"
+                style="@style/TextBody1"/>
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="10 hs"
                 style="@style/TextBody1"/>
 
             <TextView

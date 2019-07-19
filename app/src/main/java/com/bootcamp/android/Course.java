@@ -8,11 +8,13 @@ public class Course implements Serializable {
     private final String name;
     private final String date;
     private final String time;
+    private final String duration;
 
-    public Course(final String name, final String date, final String time) {
+    public Course(final String name, final String date, final String time, final String duration) {
         this.name = name;
         this.date = date;
         this.time = time;
+        this.duration = duration;
     }
 
     public String getName() {
@@ -27,6 +29,10 @@ public class Course implements Serializable {
         return time;
     }
 
+    public String getDuration() {
+        return duration;
+    }
+
     @Override
     @NonNull
     public String toString() {
@@ -34,6 +40,7 @@ public class Course implements Serializable {
             "name='" + name + '\'' +
             ", date='" + date + '\'' +
             ", time='" + time + '\'' +
+            ", duration='" + duration + '\'' +
             '}';
     }
 }
