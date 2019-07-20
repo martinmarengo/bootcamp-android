@@ -1,0 +1,94 @@
+{
+  "courses": [
+    {
+      "name": "Business Intelligence con Cultura Data Driven",
+      "date": "15/07 y 16/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "4 hs"
+    },
+    {
+      "name": "GO! Desde Hello World hasta API Rest",
+      "date": "Del 22/07 al 26/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "10 hs"
+    },
+    {
+      "name": "Docker from Scratch",
+      "date": "Del 29/07 al 31/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "6 hs"
+    },
+    {
+      "name": "UX para devs y no devs",
+      "date": "15/07 y 16/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "4 hs"
+    },
+    {
+      "name": "Desarrollo de App Nativas con Android",
+      "date": "Del 22/07 al 26/07",
+      "time": "20:00 a 22:00 horas",
+      "duration": "10 hs"
+    },
+    {
+      "name": "Toma de Decisiones con Inteligencia Artificial",
+      "date": "29/07 y 31/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "4 hs"
+    },
+    {
+      "name": "Realidad aumentada con Javascript",
+      "date": "Del 29/07 al 31/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "6 hs"
+    },
+    {
+      "name": "Node.js y Typescript",
+      "date": "1/07, 3/07, 16/07, 22/07, 24/07, 26/07 y 30/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "14 hs"
+    },
+    {
+      "name": "Introducción a Linux",
+      "date": "23/07, 25/07, 29/07 y 30/07",
+      "time": "20:00 a 22:00 horas",
+      "duration": "8 hs"
+    },
+    {
+      "name": "Alta performance en Sistemas Web con colas",
+      "date": "02/07 y 05/07",
+      "time": "20:00 a 22:00 horas",
+      "duration": "4 hs"
+    },
+    {
+      "name": "Git",
+      "date": "1/07, 2/07 y 5/07",
+      "time": "18:00 a 20:00 horas",
+      "duration": "4 hs"
+    },
+    {
+      "name": "Desarrollo con Arduino",
+      "date": "01/07, 02/07, 05/07, 15/07, 16/07, 23/07, 25/07 y 30/07",
+      "time": "20:00 a 22:00 horas",
+      "duration": "16 hs"
+    },
+    {
+      "name": "Manejo de equipos en un mundo freelance",
+      "date": "1/07, 3/07, 15/07 y 17/07",
+      "time": "20:00 a 22:00 horas",
+      "duration": "8 hs"
+    },
+    {
+      "name": "TDD y Testing de aplicaciones Web",
+      "date": "17/07, 22/07, 24/07, 29/07 y 31/07",
+      "time": "20:00 a 22:00 horas",
+      "duration": "8 hs"
+    },
+    {
+      "name": "C# y MVC .NET",
+      "date": "2/07, 5/07, 15/07, 17/07, 23/07 y 25/07",
+      "time": "218:00 a 20:00 horas",
+      "duration": "12 hs"
+    }
+  ]
+}
