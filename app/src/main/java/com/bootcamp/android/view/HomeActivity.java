@@ -1,4 +1,4 @@
-package com.bootcamp.android;
+package com.bootcamp.android.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import com.bootcamp.android.R;
 
 public class HomeActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.bootcamp.android;
+package com.bootcamp.android.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.bootcamp.android.R;
+import com.bootcamp.android.model.Course;
 
 public class CourseActivity extends AppCompatActivity {
 

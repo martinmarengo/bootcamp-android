@@ -1,10 +1,17 @@
-package com.bootcamp.android;
+package com.bootcamp.android.model;
 
 import android.support.annotation.NonNull;
+import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Course implements Serializable {
 
+    /**
+     *  La anotación @SerializedName sólo es necesario si el nombre del atributo del JSON es diferente a
+     *  nuestro campo de la clase Java. En este caso ambos son "name" por lo cual se podría eliminar la anotación.
+     *  Tampoco haría falta si el attr del JSON es "phone_number" y el de la clase java es "phoneNumber" por ej.
+     */
+    @SerializedName("name")
     private final String name;
     private final String date;
     private final String time;

@@ -1,4 +1,4 @@
-package com.bootcamp.android;
+package com.bootcamp.android.view.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.bootcamp.android.R;
+import com.bootcamp.android.model.Course;
 import java.util.List;
 
 public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.CourseViewHolder> {
@@ -20,6 +22,12 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.CourseVi
     public CoursesAdapter(final List<Course> courses, final OnCourseListener onCourseListener) {
         this.courses = courses;
         this.onCourseListener = onCourseListener;
+    }
+
+    public void updateCourses(final List<Course> courses) {
+        this.courses.clear();
+        this.courses.addAll(courses);
+        notifyDataSetChanged();
     }
 
     /**
