@@ -1,6 +1,6 @@
 ## bootcamp-android: aplicación de ejemplo
 
-- Link Slides: https://docs.google.com/presentation/d/1u_PAdH9P6qPPUif-C_3u3xa5Fn4syOa02ArVYKpf52E/edit?usp=sharing
+- Presentación: https://docs.google.com/presentation/d/1u_PAdH9P6qPPUif-C_3u3xa5Fn4syOa02ArVYKpf52E/edit?usp=sharing
 
 - Acceder al JSON de cursos en [https://my-json-server.typicode.com/martinmarengo/bootcamp-android/courses](https://my-json-server.typicode.com/martinmarengo/bootcamp-android/courses)
 
