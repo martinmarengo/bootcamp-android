@@ -1,7 +1,8 @@
 ## bootcamp-android: aplicación de ejemplo
 
-Link Slides: https://docs.google.com/presentation/d/1u_PAdH9P6qPPUif-C_3u3xa5Fn4syOa02ArVYKpf52E/edit#slide=id.p
-Acceder al JSON de cursos en [https://my-json-server.typicode.com/martinmarengo/bootcamp-android/courses](https://my-json-server.typicode.com/martinmarengo/bootcamp-android/courses)
+- Link Slides: https://docs.google.com/presentation/d/1u_PAdH9P6qPPUif-C_3u3xa5Fn4syOa02ArVYKpf52E/edit?usp=sharing
+
+- Acceder al JSON de cursos en [https://my-json-server.typicode.com/martinmarengo/bootcamp-android/courses](https://my-json-server.typicode.com/martinmarengo/bootcamp-android/courses)
 
 ### Ramas: 
 - [1st_class](https://github.com/martinmarengo/bootcamp-android/tree/1st_class): inicio del proyecto, appbar, menues, vista con un TextView y un Button, que lleva a enviar en Email con datos precargados.
